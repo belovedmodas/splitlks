@@ -1,0 +1,11 @@
+{
+  "name": "splitLKS",
+  "short_name": "splitLKS",
+  "display": "standalone",
+  "background_color": "#fff9e6",
+  "theme_color": "#e8457c",
+  "icons": [
+    { "src": "icone-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icone-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

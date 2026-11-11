@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>splitLKS</title>
+  <!-- Porta de entrada do Split Leekimshims: só existe para o celular guardar o
+       ícone e o nome certos no atalho da tela de início. O app de verdade roda
+       no Google, dentro do quadro abaixo. A senha do link (k) e o nome (eu)
+       vêm pela própria URL desta página e são repassados ao app. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icone-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icone-192.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="splitLKS">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#e8457c">
+  <style>
+    html, body { margin: 0; height: 100%; background: #fff9e6; }
+    iframe { border: 0; width: 100%; height: 100%; display: block; }
+    .aviso { font-family: system-ui, sans-serif; padding: 24px; color: #3b2f00; }
+  </style>
+</head>
+<body>
+  <script>
+    var APP = 'https://script.google.com/macros/s/AKfycbyjMcO7p1iQVRuX510MyXFchX7iit-3JpMVgq4ZmtFaUqGPOH4ZfSyNyBEw5uJ9uEXX/exec';
+    var p = new URLSearchParams(location.search);
+    var k = p.get('k') || '';
+    var eu = p.get('eu') || '';
+    if (!k) {
+      document.write('<p class="aviso">Link incompleto: falta a senha do link.</p>');
+    } else {
+      var f = document.createElement('iframe');
+      f.src = APP + '?k=' + encodeURIComponent(k) + (eu ? '&eu=' + encodeURIComponent(eu) : '');
+      f.allow = 'clipboard-write';
+      document.body.appendChild(f);
+    }
+  </script>
+</body>
+</html>
