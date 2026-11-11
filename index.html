@@ -12,7 +12,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="https://belovedmodas.github.io/splitlks/icone-180.png">
   <link rel="icon" type="image/png" sizes="192x192" href="https://belovedmodas.github.io/splitlks/icone-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="https://belovedmodas.github.io/splitlks/icone-512.png">
-  <link rel="manifest" href="https://belovedmodas.github.io/splitlks/manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="splitLKS">
@@ -26,6 +25,14 @@
 </head>
 <body>
   <script>
+    // O manifesto só entra fora do iPhone: no iOS ele fazia o atalho vir com a
+    // letra "S" em vez do ícone; lá vale só a tag apple-touch-icon acima.
+    if (!/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      var m = document.createElement('link');
+      m.rel = 'manifest';
+      m.href = 'https://belovedmodas.github.io/splitlks/manifest.json';
+      document.head.appendChild(m);
+    }
     var APP = 'https://script.google.com/macros/s/AKfycbyjMcO7p1iQVRuX510MyXFchX7iit-3JpMVgq4ZmtFaUqGPOH4ZfSyNyBEw5uJ9uEXX/exec';
     var p = new URLSearchParams(location.search);
     var k = p.get('k') || '';
